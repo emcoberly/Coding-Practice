@@ -4,6 +4,7 @@
   
 Files in this repository are for practicing and developing coding skills.  
 Some projects are rudamentary and serve a basic purpose, while others are more serious and require more attention to detail.  
+Recreating classic games for most practice. Starting with basic board games, eyes set on recreating larger video games.  
   
 ### Currently working on:  
   - Yahtzee  
@@ -16,11 +17,15 @@ Some projects are rudamentary and serve a basic purpose, while others are more s
   - Maze generator  
   - Anagrams  
   - Minecraft (practice with classes, esp. blocks)  
+  - Pokémon (similar reason to Minecraft)  
   
 ### Learning objectives:  
   - Version control  
-  - C++ classes  
+  - C++ classes    
+  - C++ fstream  
   - Java  
   - Header files  
+  - Linked lists
+  - UIs, esp. GUIs
   
 _In general, not open to outside changes. However, advice and suggestions are greatly appreciated!_
