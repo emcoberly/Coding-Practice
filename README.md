@@ -1,7 +1,6 @@
 # Coding Practice  
   
-## Junior Mathematics and Computer Science major at Walla Walla University  
-## C++ Enthusiast™  
+## Junior Mathematics and Computer Science major at Walla Walla University, C++ Enthusiast™  
   
 Files in this repository are for practicing and developing coding skills.  
 Some projects are rudamentary and serve a basic purpose, while others are more serious and require more attention to detail.  
@@ -16,11 +15,12 @@ Some projects are rudamentary and serve a basic purpose, while others are more s
 ### Stretch goals:  
   - Maze generator  
   - Anagrams  
-  - Minecraft (practice with classes)  
+  - Minecraft (practice with classes, esp. blocks)  
   
 ### Learning objectives:  
   - Version control  
   - C++ classes  
   - Java  
+  - Header files  
   
 _In general, not open to outside changes. However, advice and suggestions are greatly appreciated!_
