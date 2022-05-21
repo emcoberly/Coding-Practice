@@ -8,8 +8,8 @@ void scoreboard(map<string,int> scores) {
     int total_score = -1;
     bool valid_top_score = (scores["Aces"] > -1) && (scores["Deuces"] > -1) && (scores["Threes"] > -1) &&
                             (scores["Fours"] > -1) && (scores["Fives"] > -1) && (scores["Sixes"] > -1);
-    bool valid_bottom_score = ((scores["Three of a Kind"] > -1) && (scores["Four of a Kind"] > -1) && (scores["Full House"] > -1) &&
-                                (scores["Small Straight"] > -1) && (scores["Large Straight"] > -1) && (scores["Yahtzee"] > -1) &&
+    bool valid_bottom_score = ((scores["Three-of-a-Kind"] > -1) && (scores["Four-of-a-Kind"] > -1) && (scores["Full-House"] > -1) &&
+                                (scores["Small-Straight"] > -1) && (scores["Large-Straight"] > -1) && (scores["Yahtzee"] > -1) &&
                                 (scores["Chance"] > -1));
 
     // HEADER
@@ -81,24 +81,24 @@ void scoreboard(map<string,int> scores) {
 
     // BOTTOM HALF
     cout << "Three of a Kind     |      ";
-    if (scores["Three of a Kind"] > -1) {
-        cout << scores["Three of a Kind"];
+    if (scores["Three-of-a-Kind"] > -1) {
+        cout << scores["Three-of-a-Kind"];
     } cout << endl;
     cout << "Four of a Kind      |      ";
-    if (scores["Four of a Kind"] > -1) {
-        cout << scores["Four of a Kind"];
+    if (scores["Four-of-a-Kind"] > -1) {
+        cout << scores["Four-of-a-Kind"];
     } cout << endl;
     cout << "Full House          |      ";
-    if (scores["Full House"] > -1) {
-        cout << scores["Full House"];
+    if (scores["Full-House"] > -1) {
+        cout << scores["Full-House"];
     } cout << endl;
     cout << "Small Straight      |      ";
-    if (scores["Small Straight"] > -1) {
-        cout << scores["Small Straight"];
+    if (scores["Small-Straight"] > -1) {
+        cout << scores["Small-Straight"];
     } cout << endl;
     cout << "Large Straight      |      ";
-    if (scores["Large Straight"] > -1) {
-        cout << scores["Large Straight"];
+    if (scores["Large-Straight"] > -1) {
+        cout << scores["Large-Straight"];
     } cout << endl;
     cout << "Yahtzee             |      ";
     if (scores["Yahtzee"] > -1) {
@@ -118,8 +118,8 @@ void scoreboard(map<string,int> scores) {
 
     // FINAL SCORES
     // SET BOTTOM SCORE
-    bottom_half_score = scores["Three of a Kind"] + scores["Four of a Kind"] + scores["Full House"] +
-                        scores["Small Straight"] + scores["Large Straight"] + scores["Yahtzee"] +
+    bottom_half_score = scores["Three-of-a-Kind"] + scores["Four-of-a-Kind"] + scores["Full-House"] +
+                        scores["Small-Straight"] + scores["Large-Straight"] + scores["Yahtzee"] +
                         scores["Yahtzee Bonus"] + scores["Chance"];
 
     // DISPLAY BOTTOM SCORE IF READY

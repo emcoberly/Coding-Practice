@@ -1,6 +1,6 @@
 #include "Yahtzee.h"
 
-bool saveScore(vector<int> my_dice, map<string,int> &player_score, int turns_taken) {
+void saveScore(vector<int> my_dice, map<string,int> &player_score, int turns_taken) {
 
     // SEND DICE NUMBERS TO MAP FOR SCORE OPTION COMPARISONS
     map<string,int> dice_nums {
@@ -41,7 +41,7 @@ bool saveScore(vector<int> my_dice, map<string,int> &player_score, int turns_tak
     bool yahtzee_bonus = yahtzee && (player_score["Yahtzee"] != -1);
 
     cout << "What score would you like to save?" << endl;
-    cout << "Enter as written on the scorepad. Case-sensitive." << endl;
+    cout << "Enter as written on the scorepad. Use \'-\' for spaces. Case-sensitive." << endl;
     if (turns_taken < 3) {
         cout << "(Enter \'Cancel\' to cancel return to options menu.)" << endl;
     }
@@ -50,10 +50,10 @@ bool saveScore(vector<int> my_dice, map<string,int> &player_score, int turns_tak
         cin.ignore(1000,'\n');
         int points_available = 0;
         cout << "-> ";
-        getline(cin,score_type);
+        cin >> score_type;
 
         if (score_type == "Cancel") {
-            return false;
+            return;
         } else if (player_score[score_type] != -1) {
             cout << "You have already taken that score. Save something else." << endl;
         } else {
@@ -69,21 +69,21 @@ bool saveScore(vector<int> my_dice, map<string,int> &player_score, int turns_tak
                 points_available = dice_nums["five"] * 5;
             } else if (score_type == "Sixes") {
                 points_available = dice_nums["six"] * 6;
-            } else if (score_type == "Three of a Kind") {
+            } else if (score_type == "Three-of-a-Kind") {
                 for (const auto& kv : dice_nums) {
                     if (kv.second >= 3) {
                         points_available = sumDice(my_dice);
                         break;
                     }
                 }
-            } else if (score_type == "Four of a Kind") {
+            } else if (score_type == "Four-of-a-Kind") {
                 for (const auto& kv : dice_nums) {
                     if (kv.second >= 4) {
                         points_available = sumDice(my_dice);
                         break;
                     }
                 }
-            } else if (score_type == "Full House") {
+            } else if (score_type == "Full-House") {
                 bool three_set = false, two_set = false;
                 for (const auto& kv : dice_nums) {
                     if (kv.second == 3) {
@@ -95,7 +95,7 @@ bool saveScore(vector<int> my_dice, map<string,int> &player_score, int turns_tak
                 if ((three_set && two_set) || yahtzee_bonus) {
                     points_available = 25;
                 }
-            } else if (score_type == "Small Straight") {
+            } else if (score_type == "Small-Straight") {
                 // SMALL STRAIGHTS MUST CONTAIN 3 AND 4 AND HAVE AT LEAST ONE 1/2, 2/5, OR 5/6 PAIR
                 bool small_12 = (dice_nums["one"] > 0) && (dice_nums["two"] > 0);
                 bool small_25 = (dice_nums["two"] > 0) && (dice_nums["five"] > 0);
@@ -104,7 +104,7 @@ bool saveScore(vector<int> my_dice, map<string,int> &player_score, int turns_tak
                 if ((small_req && (small_12 || small_25 || small_56)) || yahtzee_bonus) {
                     points_available = 30;
                 }
-            } else if (score_type == "Large Straight") {
+            } else if (score_type == "Large-Straight") {
                 // LARGE STRAIGHTS MUST CONTAIN 2-5 AND EITHER 1 OR 6
                 bool large_1 = dice_nums["one"] == 1;
                 bool large_6 = dice_nums["six"] == 1;
@@ -123,15 +123,11 @@ bool saveScore(vector<int> my_dice, map<string,int> &player_score, int turns_tak
             if (points_available != 1) { cout << "s"; }     // CHECK FOR PLURALIZATION LOL
             cout << "?" << endl;
             cout << "(Yes/No) -> ";
-            getline(cin,confirm_score);
+            cin >> confirm_score;
             if (confirm_score == "Yes") {
                 invalid_input = false;
                 player_score[score_type] = points_available;
             }
         }
-        char end = '\n';
-        cin >> end;
     } while (invalid_input);
-
-    return true;
 }
