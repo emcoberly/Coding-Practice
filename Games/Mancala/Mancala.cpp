@@ -11,6 +11,9 @@ int main() {
 
     // CHOOSE GAME MODE
     string game_mode = welcomePlayers();
+    if (game_mode == "Quit") {
+        return 0;
+    }
 
     // INITIALIZE THE TWO PLAYERS
     Cell player1;
@@ -31,7 +34,6 @@ int main() {
     int player_id = 1;
     while (!game_over) {
         played_cell = chooseCell(board_cells, player_id);
-        cout << "Cell " << played_cell.id << " was played." << endl;
         moveCell(board_cells, played_cell, player_id, player1, player2, game_over, game_mode);
         buildGameBoard(board_cells, player1, player2);
         player_id = player_id % 2 + 1;

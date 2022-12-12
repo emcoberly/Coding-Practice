@@ -23,7 +23,7 @@ string welcomePlayers() {
                 valid_input = true;
             } else if (input == 3) {
                 cout << "Thank you for playing!" << endl;
-                return 0;
+                return "Quit";
             } else {
                 cout << "Please enter 1 or 2 to select game mode or 3 to quit." << endl;
             }

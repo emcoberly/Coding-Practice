@@ -49,11 +49,11 @@ int main() {
                 if (input == "roll") {
                     saveDice(my_roll);
                 } else if (input == "score") {
-                    saveScore(my_roll, scores, roll);
+                    saveScore(my_roll, scores, roll, turn_end);
                 }
             }
         } else {
-            saveScore(my_roll, scores, roll);
+            saveScore(my_roll, scores, roll, turn_end);
         }
     }
 

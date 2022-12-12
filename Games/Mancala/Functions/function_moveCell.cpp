@@ -57,7 +57,10 @@ void moveCell(Cell cell_list[], Cell played_cell, int player_id, Cell &player1, 
         if ((game_mode == "Cascade") && cascade_flag) {
             cout << "--------------| CASCADED |--------------" << endl;
         }
+        cout << "Cell " << played_cell.id << " was played." << endl;
         buildGameBoard(cell_list, player1, player2);
         moveCell(cell_list, chooseCell(cell_list, player_id), player_id, player1, player2, game_over, game_mode);
+    } else {
+        cout << "Cell " << played_cell.id << " was played." << endl;
     }
 }

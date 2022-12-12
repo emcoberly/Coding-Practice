@@ -1,6 +1,6 @@
 #include "Yahtzee.h"
 
-void saveScore(vector<int> my_dice, map<string,int> &player_score, int turns_taken) {
+void saveScore(vector<int> my_dice, map<string,int> &player_score, int turns_taken, bool &finish_turn) {
 
     // SEND DICE NUMBERS TO MAP FOR SCORE OPTION COMPARISONS
     map<string,int> dice_nums {
@@ -126,7 +126,9 @@ void saveScore(vector<int> my_dice, map<string,int> &player_score, int turns_tak
             cin >> confirm_score;
             if (confirm_score == "Yes") {
                 invalid_input = false;
+                finish_turn = true;
                 player_score[score_type] = points_available;
+                return;
             }
         }
     } while (invalid_input);
