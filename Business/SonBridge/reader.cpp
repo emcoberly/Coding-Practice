@@ -40,7 +40,12 @@ void summaryDateTime(Summary &summary, int month, int day, int year, int hour,
 void printSummary(vector<Summary> totals);
 void exportFormatted(vector<Summary> summary, string file_name);
 
-int main() {
+int main(int argc, char *argv[]) {
+
+  if (argc < 2) {
+    cerr << "Please add a file name as an argument." << endl;
+    exit(1);
+  }
 
   Summary sales_summary;
   int input_type;
@@ -55,8 +60,7 @@ int main() {
   bool clothing_flag = false;
 
   ifstream fin;
-  string file_name = "EJFL1504.txt";
-  fin.open(file_name);
+  fin.open(argv[1]);
   string line;
 
   char char_junk;
@@ -64,7 +68,8 @@ int main() {
   string str_junk;
 
   if (!fin.is_open()) {
-    cerr << "ERROR: Could not open \"" << file_name << "\"." << endl;
+    cerr << "ERROR: Could not open \"" << argv[1] << "\"." << endl;
+    exit(1);
   } else {
     while (getline(fin, line)) {
       stringstream parse_line(line);
@@ -132,7 +137,7 @@ int main() {
   fin.close();
 
 	// Generate new file name, account for 0's
-  file_name = "";
+  string file_name = "";
   if (sales_month < 10) {
     file_name += "0";
   }
