@@ -1,0 +1,88 @@
+/* ------------- */
+/* two main divs */
+
+#cards-in-play {
+  width: 70%;
+  left: 5%;
+  height: 700px;
+  position: absolute;
+  border: solid 1px red;
+}
+
+#deck-remaining {
+  width: 20%;
+  right: 5%;
+  height: 700px;
+  position: absolute;
+  border: solid 1px red;
+  transform: translate(3px, 0px)
+}
+
+/* ----------------------- */
+/* format individual cards */
+
+.card {
+  height: 140px;
+  width: 196px;
+  position: absolute;
+  border: solid 1px black;
+  border-radius: 20px;
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+}
+
+.card:hover {
+  background-color: rgba(255, 220, 0, 0.1);
+  box-shadow: 0px 0px 15px rgba(255, 220, 0, 0.1)
+}
+
+.clicked {
+  background-color: rgba(255, 220, 0, 0.2);
+  box-shadow: 0px 0px 15px rgba(255, 220, 0, 0.2);
+}
+
+/* -------------------------------------------- */
+/* style the grid of cards that the user clicks */
+
+.card:nth-of-type(4n) {
+  left: 20%;
+}
+
+.card:nth-of-type(4n+1) {
+  left: 40%;
+}
+
+.card:nth-of-type(4n+2) {
+  left: 60%;
+}
+
+.card:nth-of-type(4n+3) {
+  left: 80%;
+}
+
+.card:nth-of-type(3n) {
+  /* transform: translate(0, -50%); */
+  top: 25%;
+}
+
+.card:nth-of-type(3n+1) {
+  /* transform: translate(0, -50%); */
+  top: 50%;
+}
+
+.card:nth-of-type(3n+2) {
+  /* transform: translate(0, -50%); */
+  top: 75%
+}
+
+.deck {
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 196px;
+  position: absolute;
+  border: solid 1px black;
+  border-radius: 20px;
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+}
