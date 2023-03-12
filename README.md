@@ -8,16 +8,17 @@ Recreating classic games for most practice. Starting with basic board games, eye
   
 ### Currently working on:  
   - Yahtzee  
+  - Set
   
-### Future plans:  
-  - MasterMind (programming the AI)  
-  - Battleship  
+### Future plans:   
+  - Battleship
+  - Pokémon (practicing classes in C++, Python)
   
-### Stretch goals:  
+### Stretch goals:
+  - MasterMind (programming the AI) 
   - Maze generator  
   - Anagrams  
   - Minecraft (practice with classes, esp. blocks)  
-  - Pokémon (similar reason to Minecraft)  
   
 ### Learning objectives:  
   - Version control  
