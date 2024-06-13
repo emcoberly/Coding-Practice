@@ -12,6 +12,9 @@ class GitScript:
     """
 
     def __init__(self, cd):
+        """
+        Initialize object
+        """
         self.message = ""
         self.cd = cd
 
@@ -26,11 +29,13 @@ class GitScript:
         Input commit message
         """
         self.message = input("Enter a commit message:\n")
+        return self.message
 
     def repo(self):
         """
         Change to repo directory and format all files
         """
+        # TODO - Make this file path dynamic so check_for_update() becomes obsolete
         os.chdir("C://Users/mscob/OneDrive/Documents/Coding-Practice/")
 
     def format(self):
@@ -66,6 +71,7 @@ def main():
 
     # DO NOT FORGET to update file path used in repo() function
     if git.check_for_update() == "y":
+        print("Well then, please change the file path posthaste!")
         sys.exit(0)
 
     # Commit message for Git
