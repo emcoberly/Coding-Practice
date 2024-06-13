@@ -32,6 +32,11 @@ class GitScript:
         Change to repo directory and format all files
         """
         os.chdir("C://Users/mscob/OneDrive/Documents/Coding-Practice/")
+
+    def format(self):
+        """
+        Perform any necessary formatting
+        """
         os.system("black .")
 
     def git(self):
@@ -56,14 +61,26 @@ def main():
     # Clear console
     os.system("cls" if os.name == "nt" else "clear")
 
+    # Initialize script with current path
     git = GitScript(os.getcwd())
 
+    # DO NOT FORGET to update file path used in repo() function
     if git.check_for_update() == "y":
         sys.exit(0)
 
+    # Commit message for Git
     git.get_commit_message()
+
+    # cd to Coding-Practice repo
     git.repo()
+
+    # Format files
+    git.format()
+
+    # git add, commit, push
     git.git()
+
+    # Return to original directory
     git.return_cd()
 
 
