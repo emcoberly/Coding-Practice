@@ -31,7 +31,7 @@ class GitScript:
         """
         Change to repo directory and format all files
         """
-        os.system("cd ~/OneDrive/Documents/Coding-Practice/")
+        os.chdir("C://Users/mscob/OneDrive/Documents/Coding-Practice/")
         os.system("black .")
 
     def git(self):
@@ -43,7 +43,10 @@ class GitScript:
         os.system("git push")
 
     def return_cd(self):
-        os.system(f"cd {self.cd}")
+        """
+        Return to original directory
+        """
+        os.chdir(self.cd)
 
 
 def main():
