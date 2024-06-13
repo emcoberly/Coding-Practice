@@ -7,7 +7,6 @@ def hello_world():
     """
     hello_world() docstring
     """
-
     print("Hello world!")
 
 
