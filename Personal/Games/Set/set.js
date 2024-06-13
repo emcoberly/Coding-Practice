@@ -26,7 +26,10 @@ function buildGameboard() {
       newCard.classList.toggle('clicked')
       if (newCard.classList.contains('clicked')) {
         CLICKED_CARDS.push(newCard)
+        console.log(newCard)
         if (CLICKED_CARDS.length == 3) {
+          console.log(CLICKED_CARDS)
+          console.log(isSet(CLICKED_CARDS))
           for (let i = 2; i >= 0; i--) {
             CLICKED_CARDS[i].classList.toggle('clicked')
             CLICKED_CARDS.splice(i,1)
@@ -92,6 +95,32 @@ function getCard(deck) {
   let returnCard = deck[cardIndex]
   deck.splice(cardIndex, 1)
   return returnCard  
+}
+
+function isSet(three) {
+  console.log(three)
+  console.log(three[0].color, three[0].shape, three[0].number, three[0].fill)
+  console.log(three[1].color, three[1].shape, three[1].number, three[1].fill)
+  console.log(three[2].color, three[2].shape, three[2].number, three[2].fill)
+
+  let sameColor = (three[0].color === three[1].color && three[1].color === three[2].color)
+  let sameShape = (three[0].shape === three[1].shape && three[1].shape === three[2].shape)
+  let sameNumber = (three[0].number === three[1].number && three[1].number === three[2].number)
+  let sameFill = (three[0].fill === three[1].fill && three[1].fill === three[2].fill)
+
+  let differentColor = (three[0].color !== three[1].color && three[1].color !== three[2].color)
+  let differentShape = (three[0].shape !== three[1].shape && three[1].shape !== three[2].shape)
+  let differentNumber = (three[0].number !== three[1].number && three[1].number !== three[2].number)
+  let differentFill = (three[0].fill !== three[1].fill && three[1].fill !== three[2].fill)
+
+  let allSame = (sameColor && sameShape && sameNumber && sameFill)
+  let allDifferent = (differentColor && differentShape && differentNumber && differentFill)
+
+  if (allSame || allDifferent) {
+    return true
+  }
+
+  return false
 }
 
 playGame()
